@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Conteúdo exclusivo da Lia com pagamento seguro por Pix.">
+  <title>Lia — Conteúdo exclusivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#inicio"><i></i>LIA</a>
+    <span class="private">acesso privado · 18+</span>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <span class="eyebrow">Só entre nós dois</span>
+        <h1>Você chegou até aqui.<br><em>Agora escolhe.</em></h1>
+        <p class="lead">Meus conteúdos mais exclusivos, enviados com discrição logo após a confirmação do pagamento.</p>
+        <div class="hero-action">
+          <a class="button" href="#pacotes">Ver meus packs <b>↘</b></a>
+          <small>◆ Pagamento seguro<br>via Pix</small>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="outline"></div>
+        <figure><img src="assets/lia-hero.webp" alt="Retrato artístico da Lia"><figcaption><span>conteúdo original</span><b>Lia, 24</b></figcaption></figure>
+        <div class="seal">feito pra<br><em>provocar</em></div>
+      </div>
+    </section>
+
+    <section class="manifesto"><small>Sem assinatura. Sem enrolação.</small><h2>Você escolhe o pack,<br>eu cuido do <em>resto.</em></h2></section>
+
+    <section class="packs" id="pacotes">
+      <div class="section-title"><span>01 — Escolha seu pack</span><p>Conteúdo exclusivo entregue em ambiente privado.</p></div>
+      <div class="grid">
+        <article>
+          <span class="number">01 · Pra começar</span><h3>10 fotos</h3><p>Uma primeira dose pra matar a curiosidade.</p>
+          <strong><small>R$</small>19<sup>,90</sup></strong>
+          <button data-pack="pack_10_fotos" data-title="10 fotos" data-price="R$ 19,90">Eu quero <b>→</b></button>
+        </article>
+        <article class="featured">
+          <label>Mais escolhido</label><span class="number">02 · Mais de mim</span><h3>30 fotos</h3><p>Meu pack mais completo de fotos exclusivas.</p>
+          <strong><small>R$</small>39<sup>,90</sup></strong>
+          <button data-pack="pack_30_fotos" data-title="30 fotos" data-price="R$ 39,90">Escolher este <b>→</b></button>
+        </article>
+        <article>
+          <span class="number">03 · Experiência completa</span><h3>20 fotos + vídeo</h3><p>Fotos selecionadas e um vídeo exclusivo.</p>
+          <strong><small>R$</small>59<sup>,90</sup></strong>
+          <button data-pack="pack_20_fotos_1_video" data-title="20 fotos + vídeo" data-price="R$ 59,90">Quero tudo <b>→</b></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div class="section-title"><span>02 — Como funciona</span></div>
+      <div class="step-grid">
+        <article><i>1</i><h3>Escolha</h3><p>Selecione o pack que mais combina com você.</p></article>
+        <article><i>2</i><h3>Pague</h3><p>Gere seu Pix com segurança pelo Asaas.</p></article>
+        <article><i>3</i><h3>Receba</h3><p>O acesso é liberado após a confirmação.</p></article>
+      </div>
+    </section>
+
+    <section class="closing"><div><span class="eyebrow">Ainda pensando?</span><h2>A curiosidade não vai<br>embora <em>sozinha.</em></h2></div><a class="button light" href="#pacotes">Escolher pack ↗</a></section>
+  </main>
+
+  <footer><a class="brand" href="#inicio"><i></i>LIA</a><p>Exclusivo para maiores de 18 anos.</p><nav><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos</a></nav></footer>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="backdrop" data-close></div>
+    <section class="panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="close" data-close aria-label="Fechar">×</button>
+      <div id="form-view">
+        <span class="eyebrow">Checkout seguro</span><h2 id="modal-title">Quase seu.</h2><p id="selected-pack"></p>
+        <form id="checkout-form">
+          <input type="hidden" name="packId" id="pack-id">
+          <label>Seu nome<input name="name" autocomplete="name" required placeholder="Como quer ser chamado?"></label>
+          <label>WhatsApp<input name="phone" id="phone" inputmode="tel" required placeholder="(92) 99999-9999"></label>
+          <label>CPF ou CNPJ<input name="cpfCnpj" id="document" inputmode="numeric" required placeholder="Somente para gerar o Pix"></label>
+          <label class="check"><input type="checkbox" id="adult" required><span>Confirmo que tenho 18 anos ou mais e aceito os termos.</span></label>
+          <button class="button submit" type="submit">Gerar meu Pix <b>→</b></button>
+          <p class="error" id="error"></p>
+          <small class="privacy">Dados usados apenas para processar seu pedido.</small>
+        </form>
+      </div>
+      <div class="payment" id="payment-view" hidden>
+        <i>✓</i><span class="eyebrow">Pix gerado</span><h2>Agora é só pagar.</h2>
+        <p>Copie o código ou abra o pagamento seguro.</p>
+        <div class="pix"><span id="pix-code"></span><button id="copy-pix">Copiar</button></div>
+        <a class="button" id="payment-link" target="_blank" rel="noopener">Abrir pagamento ↗</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+
