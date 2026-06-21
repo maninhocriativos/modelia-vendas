@@ -20,7 +20,7 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const button = form.querySelector('[type="submit"]');
   button.disabled = true;
-  button.innerHTML = "Gerando seu Pix…";
+  button.innerHTML = "Preparando pagamento…";
   errorBox.textContent = "";
   try {
     const response = await fetch("/api/checkout", {
@@ -35,13 +35,13 @@ form.addEventListener("submit", async (event) => {
       }),
     });
     const data = await response.json();
-    if (!response.ok) throw new Error(data.error || "Não foi possível gerar o Pix.");
+    if (!response.ok) throw new Error(data.error || "Não foi possível criar o pagamento.");
     showPayment(data.payment);
   } catch (error) {
     errorBox.textContent = error.message;
   } finally {
     button.disabled = false;
-    button.innerHTML = "Gerar meu Pix <b>→</b>";
+    button.innerHTML = "Continuar para pagamento <b>→</b>";
   }
 });
 
@@ -53,7 +53,9 @@ document.querySelector("#copy-pix").addEventListener("click", async () => {
 function showPayment(payment) {
   document.querySelector("#form-view").hidden = true;
   document.querySelector("#payment-view").hidden = false;
-  document.querySelector("#pix-code").textContent = payment.pixPayload || "Use o link abaixo.";
+  const pixBox = document.querySelector("#pix-box");
+  pixBox.hidden = !payment.pixPayload;
+  document.querySelector("#pix-code").textContent = payment.pixPayload || "";
   const link = document.querySelector("#payment-link");
   link.href = payment.invoiceUrl || "#";
   link.hidden = !payment.invoiceUrl;
@@ -64,4 +66,3 @@ function closeModal() {
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("locked");
 }
-

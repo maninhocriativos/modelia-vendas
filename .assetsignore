@@ -1,0 +1,6 @@
+.git/
+.github/
+.preview/
+.wrangler/
+node_modules/
+README.md

@@ -98,7 +98,7 @@ em { color: var(--violet-2); }
 .outline { position: absolute; inset: 30px -18px -18px 40px; border: 1px solid rgba(196, 122, 255, .45); }
 .visual figure { position: absolute; inset: 0 18px 24px 0; margin: 0; overflow: hidden; background: #1a1121; }
 .visual figure:after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,5,10,.02) 40%, rgba(7,5,10,.95)); }
-.visual img { width: 100%; height: 100%; object-fit: cover; object-position: 58% center; filter: saturate(.92) contrast(1.05); }
+.visual img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 42%; filter: saturate(.9) contrast(1.08) hue-rotate(4deg); }
 .visual figcaption { position: absolute; z-index: 2; left: 28px; right: 28px; bottom: 24px; display: flex; justify-content: space-between; align-items: end; }
 .visual figcaption span { color: #c7b9d2; font-size: 8px; text-transform: uppercase; letter-spacing: .2em; }
 .visual figcaption b { font: italic 600 30px var(--serif); }
@@ -214,7 +214,7 @@ input:focus { border-color: var(--violet); box-shadow: 0 0 0 3px rgba(139,61,255
   .hero-action .button { width: 100%; }
   .hero-proof { flex-wrap: wrap; }
   .visual { width: calc(100% - 22px); min-height: 500px; height: 500px; justify-self: start; margin-left: 6px; }
-  .visual img { object-position: 59% center; }
+  .visual img { object-position: 58% 40%; }
   .seal { right: -5px; width: 92px; height: 92px; font-size: 7px; }
   .exclusive-tag { left: -8px; bottom: 45px; }
   .manifesto { padding: 78px 20px; }

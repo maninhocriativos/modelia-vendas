@@ -23,17 +23,17 @@
       <div>
         <span class="eyebrow">Private collection · acesso imediato</span>
         <h1>O lado que eu<br>não mostro <em>pra todos.</em></h1>
-        <p class="lead">Fotos e vídeos exclusivos, sem assinatura e sem enrolação. Você escolhe, paga no Pix e recebe no privado.</p>
+        <p class="lead">Fotos e vídeos exclusivos, sem assinatura e sem enrolação. Você escolhe, paga com cartão ou Pix e recebe no privado.</p>
         <div class="hero-action">
           <a class="button" href="#pacotes">Desbloquear acesso <b>↘</b></a>
-          <small><b>◆</b> Pagamento discreto<br>e seguro via Pix</small>
+          <small><b>◆</b> Cartão ou Pix<br>pelo Asaas</small>
         </div>
         <div class="hero-proof"><span>100%</span> privado <i></i><span>24h</span> acesso rápido <i></i><span>18+</span></div>
       </div>
       <div class="visual">
         <div class="visual-glow"></div>
         <div class="outline"></div>
-        <figure><img src="assets/ingrid-hero-premium.png" alt="Ingrid em ensaio editorial preto e roxo"><figcaption><span>private drop · 01</span><b>Ingrid</b></figcaption></figure>
+        <figure><img src="assets/ingrid-preview-3.jpg" alt="Ingrid em ensaio privado vermelho"><figcaption><span>private drop · 01</span><b>Ingrid</b></figcaption></figure>
         <div class="seal">conteúdo<br><em>sem censura</em></div>
         <div class="exclusive-tag">Exclusive<br>content</div>
       </div>
@@ -81,7 +81,7 @@
       <div class="section-title"><span>02 — Como funciona</span></div>
       <div class="step-grid">
         <article><i>1</i><h3>Escolha</h3><p>Selecione o pack que mais combina com você.</p></article>
-        <article><i>2</i><h3>Pague</h3><p>Gere seu Pix com segurança pelo Asaas.</p></article>
+        <article><i>2</i><h3>Pague</h3><p>Escolha cartão ou Pix no ambiente seguro do Asaas.</p></article>
         <article><i>3</i><h3>Receba</h3><p>O acesso é liberado após a confirmação.</p></article>
       </div>
     </section>
@@ -101,17 +101,17 @@
           <input type="hidden" name="packId" id="pack-id">
           <label>Seu nome<input name="name" autocomplete="name" required placeholder="Como quer ser chamado?"></label>
           <label>WhatsApp<input name="phone" id="phone" inputmode="tel" required placeholder="(92) 99999-9999"></label>
-          <label>CPF ou CNPJ<input name="cpfCnpj" id="document" inputmode="numeric" required placeholder="Somente para gerar o Pix"></label>
+          <label>CPF ou CNPJ<input name="cpfCnpj" id="document" inputmode="numeric" required placeholder="Necessário para criar o pagamento"></label>
           <label class="check"><input type="checkbox" id="adult" required><span>Confirmo que tenho 18 anos ou mais e aceito os termos.</span></label>
-          <button class="button submit" type="submit">Gerar meu Pix <b>→</b></button>
+          <button class="button submit" type="submit">Continuar para pagamento <b>→</b></button>
           <p class="error" id="error"></p>
           <small class="privacy">Dados usados apenas para processar seu pedido.</small>
         </form>
       </div>
       <div class="payment" id="payment-view" hidden>
-        <i>✓</i><span class="eyebrow">Pix gerado</span><h2>Agora é só pagar.</h2>
-        <p>Copie o código ou abra o pagamento seguro.</p>
-        <div class="pix"><span id="pix-code"></span><button id="copy-pix">Copiar</button></div>
+        <i>✓</i><span class="eyebrow">Pagamento criado</span><h2>Escolha como pagar.</h2>
+        <p>Abra o ambiente seguro do Asaas e escolha cartão ou Pix.</p>
+        <div class="pix" id="pix-box"><span id="pix-code"></span><button id="copy-pix">Copiar</button></div>
         <a class="button" id="payment-link" target="_blank" rel="noopener">Abrir pagamento ↗</a>
       </div>
     </section>
