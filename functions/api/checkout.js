@@ -21,7 +21,13 @@ export async function onRequestPost({ env, request }) {
       name, phone, interest: packId, source: "Página de vendas", tags: ["landing-page", "checkout"],
     });
     await crm(base, `/api/leads/${encodeURIComponent(lead.id)}`, "PATCH", { cpfCnpj });
-    const checkout = await crm(base, "/api/payments/pix", "POST", { contactId: lead.id, packId });
+    const checkout = await crm(base, "/api/payments/pix", "POST", {
+      contactId: lead.id,
+      packId,
+      coupon: body.coupon,
+      source: "landing",
+      silent: true,
+    });
 
     return json({ ok: true, leadId: lead.id, payment: checkout.payment }, 201);
   } catch (error) {
@@ -45,4 +51,3 @@ function json(data, status = 200) {
     status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" },
   });
 }
-

@@ -31,6 +31,7 @@ form.addEventListener("submit", async (event) => {
         phone: form.elements.phone.value,
         cpfCnpj: form.elements.cpfCnpj.value,
         packId: form.elements.packId.value,
+        coupon: form.elements.coupon.value,
         adultConsent: document.querySelector("#adult").checked,
       }),
     });
@@ -53,12 +54,24 @@ document.querySelector("#copy-pix").addEventListener("click", async () => {
 function showPayment(payment) {
   document.querySelector("#form-view").hidden = true;
   document.querySelector("#payment-view").hidden = false;
+  const title = document.querySelector("#payment-view h2");
+  const description = document.querySelector("#payment-view p");
   const pixBox = document.querySelector("#pix-box");
-  pixBox.hidden = !payment.pixPayload;
+  const paidByCoupon = payment.status === "paid" && payment.billingType === "COUPON";
+  pixBox.hidden = paidByCoupon || !payment.pixPayload;
   document.querySelector("#pix-code").textContent = payment.pixPayload || "";
   const link = document.querySelector("#payment-link");
   link.href = payment.invoiceUrl || "#";
-  link.hidden = !payment.invoiceUrl;
+  link.hidden = paidByCoupon || !payment.invoiceUrl;
+
+  if (paidByCoupon) {
+    title.textContent = "Acesso liberado.";
+    description.textContent = "Cupom aplicado com sucesso. O pack será enviado automaticamente no WhatsApp informado.";
+    return;
+  }
+
+  title.textContent = "Escolha como pagar.";
+  description.textContent = "Abra o ambiente seguro do Asaas e escolha cartão ou Pix.";
 }
 
 function closeModal() {
